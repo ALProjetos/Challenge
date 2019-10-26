@@ -30,8 +30,7 @@ const initialTodos = [
     },
     {
         id: Math.random(),
-        content:
-            "Aluguel de carro/rotas de ônibus/como funcionam os táxis/uber?",
+        content: "Aluguel de carro/rotas de ônibus/como funcionam os táxis/uber?",
         category: listBeforeTravel
     },
     {
@@ -122,8 +121,7 @@ const initialTodos = [
     },
     {
         id: Math.random(),
-        content:
-            "Telefones das bandeiras dos cartões em atendimento internacional",
+        content: "Telefones das bandeiras dos cartões em atendimento internacional",
         category: documentList
     },
     {
@@ -176,7 +174,7 @@ function App() {
                     <h1>Próximas tarefas:</h1>
                     <ul>
                         {Object.keys(nextActivities).map(category => (
-                            <li>
+                            <li key={`key_${category}`}>
                                 <strong>{category}</strong>:{" "}
                                 {nextActivities[category]}
                             </li>
