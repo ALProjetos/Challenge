@@ -13,6 +13,7 @@ const instructions = [
     "Não use Hooks.",
     "A solução final não deve apresentar nenhum erro ou warning no console do browser."
 ];
+
 class Exercise1 extends Component {
     state = {
         availableElements: [],
@@ -20,15 +21,18 @@ class Exercise1 extends Component {
     }
     
     componentWillMount() {
+
         const getPokemonNumber = pokemonNumber => {
             if (pokemonNumber < 10) return `00${pokemonNumber}`;
             if (pokemonNumber < 100) return `0${pokemonNumber}`;
             return pokemonNumber;
-        };
+        }
+        
         axios.get(`https://pokeapi.co/api/v2/pokemon?limit=500`).then(res => {
             const availableElements = res.data.results.map((item, ix) => {
                 return ({
                     number: getPokemonNumber(ix + 1),
+                    image: `https://www.serebii.net/pokedex-sm/icon/${getPokemonNumber(ix + 1)}.png`,
                     ...item
                 })
             });
@@ -37,7 +41,6 @@ class Exercise1 extends Component {
     }
 
     render() {
-        const getPokemonIconURL = pokemonNumber => `https://www.serebii.net/pokedex-sm/icon/${pokemonNumber}.png`;
         return (
             <div className={classes.Exercise1}>
                 <DescriptionExercise instructions={instructions} />
@@ -46,13 +49,13 @@ class Exercise1 extends Component {
                         <table className={classes.Table}>
                             <tbody>
                                 {this.state.availableElements.map((element, index) => (
-                                    <tr key={Math.random()}>
+                                    <tr key={index}>
                                         <td className={classes.Number}>
                                             <div>{`#${element.number}`}</div>
                                         </td>
                                         <td className={classes.Description}>
                                             <div className={classes.PokemonContainer}>
-                                                <img src={getPokemonIconURL(element.number)} alt="Pokemon Icon"/>
+                                                <img src={element.image} alt="Pokemon Icon"/>
                                                 <span>{element.name}</span>
                                             </div>
                                         </td>
@@ -71,10 +74,10 @@ class Exercise1 extends Component {
                     <div className={classes.CaptureContainer}>
                         {this.state.selectedElements.map((element, index) => (
                             <Card 
-                                key={Math.random()}
+                                key={index}
                                 number={`#${element.number}`}
                                 name={element.name}
-                                src={getPokemonIconURL(element.number)}
+                                src={element.image}
                                 onClick={() => (
                                     this.setState({
                                         availableElements: this.state.selectedElements.splice(index, 1).concat(this.state.availableElements)
