@@ -1,11 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import DescriptionExercise from "../DescriptionExercise";
-import prototypeClimao from "../../assets/prototypes/climao.png";
 import classes from "./Excercise4.module.scss";
 
-const prototypeUrl =
-    "//xd.adobe.com/spec/9ebd698b-429e-4369-51b6-da668ae21fd2-e88c";
+const prototypeUrl = "//xd.adobe.com/spec/9ebd698b-429e-4369-51b6-da668ae21fd2-e88c";
 const apiUrl = "//openweathermap.org/api";
 
 const instructions = [
@@ -44,11 +42,13 @@ export default function Exercise4() {
     return (
         <>
             <DescriptionExercise instructions={instructions} />
-            <img
-                alt="Protótipo"
-                src={prototypeClimao}
-                className={classes.PrototypeImage}
-            />
+            <div className={classes.Exercise4}>
+                <div className={classes.Toolbar}>
+                    <span>Teste</span>
+                </div>
+                <div className={classes.Tempo}>
+                </div>
+            </div>
         </>
     );
 }

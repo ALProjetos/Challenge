@@ -1,6 +1,49 @@
+@import "../../sass/main.scss";
+
 .PrototypeImage {
     width: 90%;
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.Toolbar {
+    top: 80px;
+    left: 0px;
+    width: 1366px;
+    height: 70px;
+    background: #2BCBBA 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+.Toolbar .span{
+    top: 25px;
+    left: 141px;
+    width: 250px;
+    height: 26px;
+    text-align: left;
+    font: Bold Italic 20px/23px Arial;
+    letter-spacing: 0;
+    color: #FFFFFF;
+    opacity: 1;
+}
+
+.Tempo {
+    top: 128px;
+    left: 100px;
+    width: 669px;
+    height: 581px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 6px 12px #0000000F;
+    border-radius: 4px;
+    opacity: 1;
+}
+
+.Exercise4 {
+    top: 0px;
+    left: 0px;
+    width: 1366px;
+    height: 768px;
+    background: #233740 0% 0% no-repeat padding-box;
+    opacity: 0.08;
 }
